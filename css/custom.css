@@ -12,7 +12,8 @@
 
 body {
   font-family: Georgia, "Times New Roman", Times, serif;
-  color: #808080;
+  color: #555;
+  background-color: #EEE;
 }
 
 h1, .h1,
