@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>CodeFight Problem 2 - incorrectPasscode Attempts | EMChamp Blog</title>
+  <title>Coding Problem 4 | Shuffle Int Array | EMChamp Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="This problem basically asks you to check if a user has failed 10 times in a row to log into a system. If he has failed 10 times return true, if not return false. I thought this was a good problem beca">
+  <meta name="description" content="Another fairly common problem. Main challenge that I see would be generating the random integer. I chose to do this in place, its possible to do it out of place too but in my opinion the in place solu">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CodeFight Problem 2 - incorrectPasscode Attempts">
-<meta property="og:url" content="http://emchamp.github.io/2016/04/08/CodeFight-Problem-2-incorrectPasscode-Attempts/index.html">
+<meta property="og:title" content="Coding Problem 4 | Shuffle Int Array">
+<meta property="og:url" content="http://emchamp.github.io/2016/04/11/Coding-Problem-4-Shuffle-Int-Array/index.html">
 <meta property="og:site_name" content="EMChamp Blog">
-<meta property="og:description" content="This problem basically asks you to check if a user has failed 10 times in a row to log into a system. If he has failed 10 times return true, if not return false. I thought this was a good problem beca">
-<meta property="og:updated_time" content="2016-04-08T22:51:15.580Z">
+<meta property="og:description" content="Another fairly common problem. Main challenge that I see would be generating the random integer. I chose to do this in place, its possible to do it out of place too but in my opinion the in place solu">
+<meta property="og:updated_time" content="2016-04-11T18:10:40.935Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CodeFight Problem 2 - incorrectPasscode Attempts">
-<meta name="twitter:description" content="This problem basically asks you to check if a user has failed 10 times in a row to log into a system. If he has failed 10 times return true, if not return false. I thought this was a good problem beca">
+<meta name="twitter:title" content="Coding Problem 4 | Shuffle Int Array">
+<meta name="twitter:description" content="Another fairly common problem. Main challenge that I see would be generating the random integer. I chose to do this in place, its possible to do it out of place too but in my opinion the in place solu">
   
     <link rel="alternate" href="/atom.xml" title="EMChamp Blog" type="application/atom+xml">
   
@@ -77,13 +77,13 @@
 
     <div class="row">
         <div class="col-sm-8 blog-main">
-          <article id="post-CodeFight-Problem-2-incorrectPasscode-Attempts" class="article article-type-post" itemscope itemprop="blogPost">
+          <article id="post-Coding-Problem-4-Shuffle-Int-Array" class="article article-type-post" itemscope itemprop="blogPost">
 
   <header class="article-header">
     
   
     <h1 class="article-title" itemprop="name">
-      CodeFight Problem 2 - incorrectPasscode Attempts
+      Coding Problem 4 | Shuffle Int Array
     </h1>
   
 
@@ -92,7 +92,7 @@
 
   <div class="article-meta">
     <div class="article-datetime">
-  <a href="/2016/04/08/CodeFight-Problem-2-incorrectPasscode-Attempts/" class="article-date"><time datetime="2016-04-08T22:42:08.000Z" itemprop="datePublished">2016-04-08</time></a>
+  <a href="/2016/04/11/Coding-Problem-4-Shuffle-Int-Array/" class="article-date"><time datetime="2016-04-11T17:59:34.000Z" itemprop="datePublished">2016-04-11</time></a>
 </div>
 
     
@@ -103,8 +103,11 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p>This problem basically asks you to check if a user has failed 10 times in a row to log into a system. If he has failed 10 times return true, if not return false. I thought this was a good problem because you had to read carefully to understand the edge cases. I kept getting the final 2 tests wrong before actually tracing the code and realizing that I was off by 1 when checking how many times a user has logged it. </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">incorrectPasscodeAttempts</span><span class="params">(String passcode, String[] attempts)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(attempts.length == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">int</span> numAttempts = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">boolean</span> overTenFailures=<span class="keyword">false</span>;</span><br><span class="line">    <span class="keyword">for</span> (String entry : attempts) &#123;</span><br><span class="line">        <span class="keyword">if</span> (passcode.equals(entry)) &#123;</span><br><span class="line">           numAttempts = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (numAttempts &gt;= <span class="number">9</span>)&#123;</span><br><span class="line">            overTenFailures=<span class="keyword">true</span>;</span><br><span class="line">            numAttempts++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            numAttempts++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> overTenFailures;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+        <p>Another fairly common problem. Main challenge that I see would be generating the random integer. I chose to do this in place, its possible to do it out of place too but in my opinion the in place solution is more natural to this sort of problem not to mention it has O(1) space complexity. My algorithm was:</p>
+<p>for each element in array:<br>    1) Generate the random index for the element that you will swap with the current element.<br>    2) Save the current element index in a temp variable because we are going to ovewrite it with the element from the random index.<br>    3) Copy the random element into the current element thus overwriting the value of the current element, however the value is saved in step 2.<br>    4) Copy saved value of current element into the random element thus completing the swap of the current element and the random element.</p>
+<p>return original array which was swapped in place.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Random;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayShuffleCalc</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">int</span>[] shuffleArray(<span class="keyword">int</span>[] testArray) &#123;</span><br><span class="line">		Random randomInt = <span class="keyword">new</span> Random();</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; testArray.length; i++) &#123;</span><br><span class="line">			<span class="keyword">int</span> tempIndex = randomInt.nextInt(testArray.length-<span class="number">1</span>);</span><br><span class="line">		    <span class="keyword">int</span> tempInt = testArray[i];</span><br><span class="line">		    testArray[i] = testArray[tempIndex];</span><br><span class="line">		    testArray[tempIndex] = tempInt;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> testArray;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArrayShuffleDriver</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span>[] testIntArray = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>&#125;;</span><br><span class="line">		</span><br><span class="line">		ArrayShuffleCalc basicShuffle = <span class="keyword">new</span> ArrayShuffleCalc();</span><br><span class="line">		</span><br><span class="line">		System.out.println(Arrays.toString(basicShuffle.shuffleArray((testIntArray))));</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -115,11 +118,11 @@
     
 
     <footer class="article-footer">
-      <a data-url="http://emchamp.github.io/2016/04/08/CodeFight-Problem-2-incorrectPasscode-Attempts/" data-id="cimwbet3m0003kctc3xq9mp3s" class="article-share-link">
+      <a data-url="http://emchamp.github.io/2016/04/11/Coding-Problem-4-Shuffle-Int-Array/" data-id="cimwbet320000kctcriu7m04t" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
-        <a href="http://emchamp.github.io/2016/04/08/CodeFight-Problem-2-incorrectPasscode-Attempts/#disqus_thread" class="article-comment-link">
+        <a href="http://emchamp.github.io/2016/04/11/Coding-Problem-4-Shuffle-Int-Array/#disqus_thread" class="article-comment-link">
           <i class="fa fa-comment"></i> Comments
         </a>
       
@@ -134,19 +137,12 @@
 <ul id="article-nav" class="nav nav-pills nav-justified">
   
   <li role="presentation">
-    <a href="/2016/04/08/Coding-Problem-Code-Fights/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2016/04/11/Coding-Problem-3-Reverse-String/" id="article-nav-older" class="article-nav-link-wrap">
       <i class="fa fa-chevron-left pull-left"></i>
-      <span class="article-nav-link-title">CodeFights Problem 1 - Calculate average score of testers</span>
-    </a>
-  </li>
-  
-  
-  <li role="presentation">
-    <a href="/2016/04/11/Coding-Problem-3-Reverse-String/" id="article-nav-newer" class="article-nav-link-wrap">
       <span class="article-nav-link-title">Coding Problem 3 | Reverse String</span>
-      <i class="fa fa-chevron-right pull-right"></i>
     </a>
   </li>
+  
   
 </ul>
 
@@ -258,7 +254,7 @@
 <script>
   var disqus_shortname = 'username';
   
-  var disqus_url = 'http://emchamp.github.io/2016/04/08/CodeFight-Problem-2-incorrectPasscode-Attempts/';
+  var disqus_url = 'http://emchamp.github.io/2016/04/11/Coding-Problem-4-Shuffle-Int-Array/';
   
   (function(){
     var dsq = document.createElement('script');
