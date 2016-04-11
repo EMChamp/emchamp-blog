@@ -3,18 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Coding Problem 3 | Reverse String | EMChamp Blog</title>
+  <title>Coding Problem 2 | CodeFights - incorrectPasscode Attempts | EMChamp Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="This problem was originally supposed to be reverse the string in-place. However since I am using Java and Java strings are immutable this was not possible. If you were given a character array instead">
+  <meta name="description" content="This problem basically asks you to check if a user has failed 10 times in a row to log into a system. If he has failed 10 times return true, if not return false. I thought this was a good problem beca">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Coding Problem 3 | Reverse String">
-<meta property="og:url" content="http://emchamp.github.io/2016/04/11/Coding-Problem-3-Reverse-String/index.html">
+<meta property="og:title" content="Coding Problem 2 | CodeFights - incorrectPasscode Attempts">
+<meta property="og:url" content="http://emchamp.github.io/2016/04/08/CodeFight-Problem-2-incorrectPasscode-Attempts/index.html">
 <meta property="og:site_name" content="EMChamp Blog">
-<meta property="og:description" content="This problem was originally supposed to be reverse the string in-place. However since I am using Java and Java strings are immutable this was not possible. If you were given a character array instead">
-<meta property="og:updated_time" content="2016-04-11T18:12:36.765Z">
+<meta property="og:description" content="This problem basically asks you to check if a user has failed 10 times in a row to log into a system. If he has failed 10 times return true, if not return false. I thought this was a good problem beca">
+<meta property="og:updated_time" content="2016-04-11T18:15:51.716Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Coding Problem 3 | Reverse String">
-<meta name="twitter:description" content="This problem was originally supposed to be reverse the string in-place. However since I am using Java and Java strings are immutable this was not possible. If you were given a character array instead">
+<meta name="twitter:title" content="Coding Problem 2 | CodeFights - incorrectPasscode Attempts">
+<meta name="twitter:description" content="This problem basically asks you to check if a user has failed 10 times in a row to log into a system. If he has failed 10 times return true, if not return false. I thought this was a good problem beca">
   
     <link rel="alternate" href="/atom.xml" title="EMChamp Blog" type="application/atom+xml">
   
@@ -77,13 +77,13 @@
 
     <div class="row">
         <div class="col-sm-8 blog-main">
-          <article id="post-Coding-Problem-3-Reverse-String" class="article article-type-post" itemscope itemprop="blogPost">
+          <article id="post-CodeFight-Problem-2-incorrectPasscode-Attempts" class="article article-type-post" itemscope itemprop="blogPost">
 
   <header class="article-header">
     
   
     <h1 class="article-title" itemprop="name">
-      Coding Problem 3 | Reverse String
+      Coding Problem 2 | CodeFights - incorrectPasscode Attempts
     </h1>
   
 
@@ -92,7 +92,7 @@
 
   <div class="article-meta">
     <div class="article-datetime">
-  <a href="/2016/04/11/Coding-Problem-3-Reverse-String/" class="article-date"><time datetime="2016-04-11T17:24:03.000Z" itemprop="datePublished">2016-04-11</time></a>
+  <a href="/2016/04/08/CodeFight-Problem-2-incorrectPasscode-Attempts/" class="article-date"><time datetime="2016-04-08T22:42:08.000Z" itemprop="datePublished">2016-04-08</time></a>
 </div>
 
     
@@ -103,8 +103,8 @@
 
     <div class="article-entry" itemprop="articleBody">
       
-        <p>This problem was originally supposed to be reverse the string in-place. However since I am using Java and Java strings are immutable this was not possible. If you were given a character array instead of a string in java you could reverse that character array in place. The approach I took below was to copy the String into the character array and then reverse it by using the standard reverse string algorithm of swapping array elements 0 and max, 1 and max-1…until floor(max/2). Not a hard problem but a common one asked in many interviews.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ReverseStringCalc</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">reverseString</span><span class="params">(String testString)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">char</span>[] s = testString.toCharArray();</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; Math.floor(s.length/<span class="number">2</span>);i++) &#123;</span><br><span class="line">			<span class="keyword">if</span>(((s.length-<span class="number">1</span>)-i)==i)&#123;</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">char</span> tempChar = s[i];</span><br><span class="line">			s[i]=s[(s.length-<span class="number">1</span>)-i];</span><br><span class="line">			s[(s.length-<span class="number">1</span>)-i] = tempChar;		</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> String(s);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+        <p>This problem basically asks you to check if a user has failed 10 times in a row to log into a system. If he has failed 10 times return true, if not return false. I thought this was a good problem because you had to read carefully to understand the edge cases. I kept getting the final 2 tests wrong before actually tracing the code and realizing that I was off by 1 when checking how many times a user has logged it. </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">incorrectPasscodeAttempts</span><span class="params">(String passcode, String[] attempts)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(attempts.length == <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">        </span><br><span class="line">    <span class="keyword">int</span> numAttempts = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">boolean</span> overTenFailures=<span class="keyword">false</span>;</span><br><span class="line">    <span class="keyword">for</span> (String entry : attempts) &#123;</span><br><span class="line">        <span class="keyword">if</span> (passcode.equals(entry)) &#123;</span><br><span class="line">           numAttempts = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (numAttempts &gt;= <span class="number">9</span>)&#123;</span><br><span class="line">            overTenFailures=<span class="keyword">true</span>;</span><br><span class="line">            numAttempts++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            numAttempts++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> overTenFailures;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -115,11 +115,11 @@
     
 
     <footer class="article-footer">
-      <a data-url="http://emchamp.github.io/2016/04/11/Coding-Problem-3-Reverse-String/" data-id="cimwblujo0001wdtct6m18lt9" class="article-share-link">
+      <a data-url="http://emchamp.github.io/2016/04/08/CodeFight-Problem-2-incorrectPasscode-Attempts/" data-id="cimwblujf0000wdtcki6ck15u" class="article-share-link">
         <i class="fa fa-share"></i> Share
       </a>
       
-        <a href="http://emchamp.github.io/2016/04/11/Coding-Problem-3-Reverse-String/#disqus_thread" class="article-comment-link">
+        <a href="http://emchamp.github.io/2016/04/08/CodeFight-Problem-2-incorrectPasscode-Attempts/#disqus_thread" class="article-comment-link">
           <i class="fa fa-comment"></i> Comments
         </a>
       
@@ -134,16 +134,16 @@
 <ul id="article-nav" class="nav nav-pills nav-justified">
   
   <li role="presentation">
-    <a href="/2016/04/08/CodeFight-Problem-2-incorrectPasscode-Attempts/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2016/04/08/Coding-Problem-Code-Fights/" id="article-nav-older" class="article-nav-link-wrap">
       <i class="fa fa-chevron-left pull-left"></i>
-      <span class="article-nav-link-title">Coding Problem 2 | CodeFights - incorrectPasscode Attempts</span>
+      <span class="article-nav-link-title">Coding Problem 1 | CodeFights - Calculate average score of testers</span>
     </a>
   </li>
   
   
   <li role="presentation">
-    <a href="/2016/04/11/Coding-Problem-4-Shuffle-Int-Array/" id="article-nav-newer" class="article-nav-link-wrap">
-      <span class="article-nav-link-title">Coding Problem 4 | Shuffle Int Array</span>
+    <a href="/2016/04/11/Coding-Problem-3-Reverse-String/" id="article-nav-newer" class="article-nav-link-wrap">
+      <span class="article-nav-link-title">Coding Problem 3 | Reverse String</span>
       <i class="fa fa-chevron-right pull-right"></i>
     </a>
   </li>
@@ -258,7 +258,7 @@
 <script>
   var disqus_shortname = 'username';
   
-  var disqus_url = 'http://emchamp.github.io/2016/04/11/Coding-Problem-3-Reverse-String/';
+  var disqus_url = 'http://emchamp.github.io/2016/04/08/CodeFight-Problem-2-incorrectPasscode-Attempts/';
   
   (function(){
     var dsq = document.createElement('script');
